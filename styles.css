@@ -91,6 +91,10 @@ header {
   color: #fff;
   font: 8px "Press Start 2P";
 }
+.actions button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border-radius:50%;width:88px;height:88px;margin:auto;background:#303034;border:1px solid #4b4b50;color:#fff}
+.actions button:first-child{border-color:#4b4b50;color:#fff}
+.actions i{font:28px Arial;color:var(--g);font-style:normal;line-height:1}
+.actions b{font:7px 'Press Start 2P';white-space:nowrap}
 .actions button:first-child {
   border-color: var(--g);
   color: var(--g);
