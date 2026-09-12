@@ -13,7 +13,7 @@ body {
   background: #000;
   color: var(--w);
   font-family: "Press Start 2P", monospace;
-  font-size: 10px;
+  font-size: 9px;`n  letter-spacing: -0.35px;
 }
 .hero div {
   display: none !important;
@@ -99,13 +99,13 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 0;
   border-radius: 50%;
   width: 88px;
   height: 88px;
   margin: auto;
-  background: #303034;
-  border: 1px solid #4b4b50;
+  background: transparent;
+  border: 0;
   color: #fff;
 }
 .actions button:first-child {
