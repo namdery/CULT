@@ -219,3 +219,5 @@ main { padding-top: 22px; }
 .actions button { width:58px !important; height:58px !important; background:transparent !important; border:0 !important; }
 .actions b { display:none !important; }
 .actions i { font-size:30px !important; color:var(--g) !important; }
+.hero img { filter:none !important; }
+.hero:after { display:none !important; }
