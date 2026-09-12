@@ -10,7 +10,7 @@
 }
 body {
   margin: 0;
-  background: #000 url("assetslast-upload.png") center top / cover fixed no-repeat;
+  background: #000;
   color: var(--w);
   font-family: "Press Start 2P", monospace;
   font-size: 9px;`n  letter-spacing: -0.35px;
