@@ -242,8 +242,8 @@ main { padding-top: 22px; }
   50% { opacity: .30; filter: brightness(1.06); }
 }
 .hero:before { display:none !important; }
-.tile-grid { position:absolute; inset:0; z-index:4; display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:repeat(5,1fr); pointer-events:none; overflow:hidden; border-radius:inherit; mix-blend-mode:difference; }
-.tile-grid i { display:block; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); animation:tileGlow var(--duration) ease-in-out var(--delay) infinite alternate; }
-.tile-grid i:nth-child(3n){background:rgba(255,255,255,.14)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.09)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.18)}
-@keyframes tileGlow { 0%,100%{opacity:.18} 50%{opacity:.82} }
+.tile-grid { position:absolute; inset:-5px; z-index:4; display:grid; grid-template-columns:repeat(15,1fr); grid-template-rows:repeat(7,1fr); pointer-events:none; overflow:hidden; border-radius:inherit; mix-blend-mode:difference; gap:0; }
+.tile-grid i { display:block; margin:-2px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.025); animation:tileGlow var(--duration) ease-in-out var(--delay) infinite alternate; }
+.tile-grid i:nth-child(3n){background:rgba(255,255,255,.08)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.055)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.10)}
+@keyframes tileGlow { 0%,100%{opacity:.10} 50%{opacity:.42} }
 @media (prefers-reduced-motion:reduce){.tile-grid i{animation:none;opacity:.35}}
