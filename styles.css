@@ -214,10 +214,30 @@ html, body { background: #000 !important; }
 body { background-image: none !important; }
 header, nav, .ref { display: none !important; }
 main { padding-top: 22px; }
-.hero { margin: 18px 14px 0; height: 220px; border-radius: 18px; overflow: hidden; }
+.hero { margin: 18px 14px 0; height: 220px; border-radius: 28px; overflow: hidden; position: relative; }
 .hero img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 .actions button { width:58px !important; height:58px !important; background:transparent !important; border:0 !important; }
 .actions b { display:none !important; }
 .actions i { font-size:30px !important; color:var(--g) !important; }
 .hero img { filter:none !important; }
 .hero:after { display:none !important; }
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: .28;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,.16) 34px 35px),
+    repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.16) 34px 35px),
+    repeating-conic-gradient(from 45deg, rgba(255,255,255,.045) 0 25%, rgba(0,0,0,.045) 0 50%);
+  background-size: auto, auto, 68px 68px;
+  mix-blend-mode: screen;
+  animation: tilePulse 9s ease-in-out infinite alternate;
+}
+@keyframes tilePulse {
+  0%,100% { opacity: .18; filter: brightness(.94); }
+  50% { opacity: .30; filter: brightness(1.06); }
+}
