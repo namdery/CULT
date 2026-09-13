@@ -287,7 +287,8 @@ nav.bottom-nav .nav-item { display:flex; flex:1; min-width:0; flex-direction:col
 nav.bottom-nav .nav-item.active { color:var(--g); opacity:1; }
 nav.bottom-nav .nav-item img { width:23px; height:23px; object-fit:contain; }
 nav.bottom-nav .asset-home { animation:iconHome 2.8s ease-in-out infinite; }
-nav.bottom-nav .asset-wallet { animation:iconWallet 3.4s ease-in-out .2s infinite; }
+nav.bottom-nav .asset-wallet { animation:iconWallet 4.8s cubic-bezier(.45,.05,.55,.95) .2s infinite; transform-origin:center; }
+nav.bottom-nav .asset-p2p { animation:iconP2P 2.6s ease-in-out infinite; }
 nav.bottom-nav .asset-profile { animation:iconProfile 3s ease-in-out .4s infinite; }
 nav.bottom-nav .nav-item span:last-child { line-height:1; }
 .p2p-cycle { position:relative; width:34px; height:24px; display:block; }
@@ -297,8 +298,9 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 @keyframes p2pSwapA { 0%,30%{transform:translateX(0) rotate(0);opacity:1} 40%{transform:translateX(8px) rotate(35deg);opacity:0} 60%{transform:translateX(12px) rotate(180deg);opacity:0} 70%,100%{transform:translateX(12px) rotate(360deg);opacity:1} }
 @keyframes p2pSwapB { 0%,30%{transform:translateX(0) rotate(0);opacity:1} 40%{transform:translateX(-8px) rotate(-35deg);opacity:0} 60%{transform:translateX(-12px) rotate(-180deg);opacity:0} 70%,100%{transform:translateX(-12px) rotate(-360deg);opacity:1} }
 @keyframes iconHome { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) scale(1.08)} }
-@keyframes iconWallet { 0%,100%{transform:rotate(0)} 50%{transform:rotate(-8deg) scale(1.06)} }
+@keyframes iconWallet { 0%,15%{transform:rotate(0deg)} 70%{transform:rotate(360deg)} 85%,100%{transform:rotate(360deg)} }
 @keyframes iconProfile { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+@keyframes iconP2P { 0%,15%{transform:rotate(0) scale(1)} 50%{transform:rotate(180deg) scale(1.08)} 85%,100%{transform:rotate(360deg) scale(1)} }
 
 /* P2P: separated people with two independent rounded arrows. */
 .p2p-cycle { display:none !important; }
