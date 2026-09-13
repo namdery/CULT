@@ -286,8 +286,16 @@ nav.bottom-nav { display:flex !important; position:fixed; z-index:20; left:12px;
 nav.bottom-nav .nav-item { display:flex; flex:1; min-width:0; flex-direction:column; justify-content:center; align-items:center; gap:5px; color:#fff; text-decoration:none; font:600 11px Arial, Helvetica, sans-serif; opacity:.72; }
 nav.bottom-nav .nav-item.active { color:var(--g); opacity:1; }
 nav.bottom-nav .nav-item img { width:23px; height:23px; object-fit:contain; }
+nav.bottom-nav .asset-home { animation:iconHome 2.8s ease-in-out infinite; }
+nav.bottom-nav .asset-wallet { animation:iconWallet 3.4s ease-in-out .2s infinite; }
+nav.bottom-nav .asset-profile { animation:iconProfile 3s ease-in-out .4s infinite; }
 nav.bottom-nav .nav-item span:last-child { line-height:1; }
-.p2p-cycle { position:relative; width:26px; height:24px; display:block; }
-.p2p-cycle img { position:absolute; inset:0; width:24px !important; height:24px !important; animation:p2pSwap 3.2s ease-in-out infinite; }
-.p2p-cycle img:nth-child(2) { animation-delay:-1.6s; }
-@keyframes p2pSwap { 0%,18%{transform:translate(0,0) rotate(0);opacity:1} 42%{transform:translate(9px,0) rotate(90deg);opacity:.85} 50%{transform:translate(0,0) rotate(180deg);opacity:.95} 68%{transform:translate(-9px,0) rotate(270deg);opacity:.85} 82%,100%{transform:translate(0,0) rotate(360deg);opacity:1} }
+.p2p-cycle { position:relative; width:34px; height:24px; display:block; }
+.p2p-cycle img { position:absolute; top:0; width:22px !important; height:22px !important; }
+.p2p-cycle img:first-child { left:0; animation:p2pSwapA 2.8s ease-in-out infinite; }
+.p2p-cycle img:nth-child(2) { right:0; animation:p2pSwapB 2.8s ease-in-out infinite; }
+@keyframes p2pSwapA { 0%,30%{transform:translateX(0) rotate(0);opacity:1} 40%{transform:translateX(8px) rotate(35deg);opacity:0} 60%{transform:translateX(12px) rotate(180deg);opacity:0} 70%,100%{transform:translateX(12px) rotate(360deg);opacity:1} }
+@keyframes p2pSwapB { 0%,30%{transform:translateX(0) rotate(0);opacity:1} 40%{transform:translateX(-8px) rotate(-35deg);opacity:0} 60%{transform:translateX(-12px) rotate(-180deg);opacity:0} 70%,100%{transform:translateX(-12px) rotate(-360deg);opacity:1} }
+@keyframes iconHome { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) scale(1.08)} }
+@keyframes iconWallet { 0%,100%{transform:rotate(0)} 50%{transform:rotate(-8deg) scale(1.06)} }
+@keyframes iconProfile { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
