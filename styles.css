@@ -247,3 +247,15 @@ main { padding-top: 22px; }
 .tile-grid i:nth-child(3n){background:rgba(255,255,255,.00945)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.006)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.0129)}
 @keyframes tileGlow { 0%,100%{opacity:.0165} 50%{opacity:.1035} }
 @media (prefers-reduced-motion:reduce){.tile-grid i{animation:none;opacity:.08}}
+
+/* Action buttons: soft rounded icon buttons with clear labels. */
+body { font-family: Arial, Helvetica, sans-serif !important; font-size: 14px !important; letter-spacing: 0 !important; }
+.wallet > span { font: 700 13px Arial, Helvetica, sans-serif; letter-spacing: 1.5px; }
+.wallet p { font: 600 12px Arial, Helvetica, sans-serif; }
+.actions { align-items: start; }
+.actions button { width: 72px !important; height: 72px !important; border-radius: 50%; background: #25262a !important; border: 1px solid #33353a !important; color: #fff !important; gap: 7px; }
+.actions button:first-child { border-color: #33353a !important; color: #fff !important; }
+.actions i { font: 28px/1 Arial, Helvetica, sans-serif !important; color: #fff !important; }
+.actions b { display: block !important; color: #fff; font: 700 11px Arial, Helvetica, sans-serif !important; letter-spacing: 0; }
+.balance { font: 800 42px Arial, Helvetica, sans-serif; letter-spacing: -1px; }
+.balance span { font-size: 27px; }
