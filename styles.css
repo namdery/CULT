@@ -243,7 +243,7 @@ main { padding-top: 22px; }
 }
 .hero:before { display:none !important; }
 .tile-grid { position:absolute; inset:-2px; z-index:4; display:grid; grid-template-columns:repeat(45,1fr); grid-template-rows:repeat(18,1fr); pointer-events:none; overflow:hidden; border-radius:inherit; mix-blend-mode:difference; gap:0; }
-.tile-grid i { display:block; margin:-1px; border:1px solid rgba(255,255,255,.052); background:rgba(255,255,255,.0046); animation:tileGlow var(--duration) linear var(--delay) infinite alternate; }
-.tile-grid i:nth-child(3n){background:rgba(255,255,255,.0126)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.008)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.0172)}
-@keyframes tileGlow { 0%,100%{opacity:.022} 50%{opacity:.138} }
+.tile-grid i { display:block; margin:-1px; border:1px solid rgba(255,255,255,.078); background:rgba(255,255,255,.0069); animation:tileGlow var(--duration) linear var(--delay) infinite alternate; }
+.tile-grid i:nth-child(3n){background:rgba(255,255,255,.0189)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.012)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.0258)}
+@keyframes tileGlow { 0%,100%{opacity:.033} 50%{opacity:.207} }
 @media (prefers-reduced-motion:reduce){.tile-grid i{animation:none;opacity:.08}}
