@@ -9,17 +9,17 @@ if (grid) {
 }
 
 const coins = [
-  ['USDT','Tether','tether','https://assets.coingecko.com/coins/images/325/large/Tether.png'],
-  ['GRAM','Gram','gram','https://assets.coingecko.com/coins/images/29697/large/gram.png'],
-  ['SOL','Solana','solana','https://assets.coingecko.com/coins/images/4128/large/solana.png'],
-  ['TRX','TRON','tron','https://assets.coingecko.com/coins/images/1094/large/tron-logo.png'],
-  ['BTC','Bitcoin','bitcoin','https://assets.coingecko.com/coins/images/1/large/bitcoin.png'],
-  ['ETH','Ethereum','ethereum','https://assets.coingecko.com/coins/images/279/large/ethereum.png'],
-  ['DOGE','Dogecoin','dogecoin','https://assets.coingecko.com/coins/images/5/large/dogecoin.png'],
-  ['LTC','Litecoin','litecoin','https://assets.coingecko.com/coins/images/2/large/litecoin.png'],
-  ['BNB','Binance Coin','binancecoin','https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png'],
-  ['USDC','USD Coin','usd-coin','https://assets.coingecko.com/coins/images/6319/large/usdc.png'],
-  ['XAUT','Tether Gold','tether-gold','https://assets.coingecko.com/coins/images/10481/large/Tether_Gold.png']
+  ['USDT','Tether','tether','assets/coins/usdt.png'],
+  ['GRAM','Gram','the-open-network','assets/coins/gram.png'],
+  ['SOL','Solana','solana','assets/coins/sol.png'],
+  ['TRX','TRON','tron','assets/coins/trx.png'],
+  ['BTC','Bitcoin','bitcoin','assets/coins/btc.png'],
+  ['ETH','Ethereum','ethereum','assets/coins/eth.png'],
+  ['DOGE','Dogecoin','dogecoin','assets/coins/doge.png'],
+  ['LTC','Litecoin','litecoin','assets/coins/ltc.png'],
+  ['BNB','Binance Coin','binancecoin','assets/coins/bnb.png'],
+  ['USDC','USD Coin','usd-coin','assets/coins/usdc.png'],
+  ['XAUT','Tether Gold','tether-gold','assets/coins/xaut.png']
 ];
 const fallback={USDT:0.9996,GRAM:0.12,SOL:99.62,TRX:0.3385,BTC:76800.44,ETH:2477.53,DOGE:0.08245,LTC:53.79,BNB:715.89,USDC:0.9998,XAUT:4336.64};
 const fallbackChange={USDT:-0.02,GRAM:-2.79,SOL:-2.06,TRX:-0.36,BTC:-0.60,ETH:-1.79,DOGE:-2.67,LTC:0.28,BNB:-1.48,USDC:-0.01,XAUT:-0.27};

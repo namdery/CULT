@@ -214,7 +214,7 @@ html, body { background: #000 !important; }
 body { background-image: none !important; }
 header, nav, .ref { display: none !important; }
 main { padding-top: 22px; }
-.hero { margin: 18px 14px 0; height: 220px; border-radius: 28px; overflow: hidden; position: relative; }
+.hero { width: calc(100% - 28px); margin: 18px auto 0; height: 220px; border-radius: 28px; overflow: hidden; position: relative; }
 .hero img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
 .actions button { width:58px !important; height:58px !important; background:transparent !important; border:0 !important; }
 .actions b { display:none !important; }
