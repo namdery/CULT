@@ -299,3 +299,18 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 @keyframes iconHome { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) scale(1.08)} }
 @keyframes iconWallet { 0%,100%{transform:rotate(0)} 50%{transform:rotate(-8deg) scale(1.06)} }
 @keyframes iconProfile { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+
+/* P2P: separated people with two independent rounded arrows. */
+.p2p-cycle { display:none !important; }
+.p2p-scene { position:relative; display:block; width:62px; height:25px; }
+.p2p-people img { position:absolute; top:1px; width:21px !important; height:21px !important; }
+.p2p-people img:first-child { left:0; animation:personLeft 2.4s ease-in-out infinite; }
+.p2p-people img:last-child { right:0; animation:personRight 2.4s ease-in-out -.35s infinite; }
+.p2p-arrows { position:absolute; left:50%; top:50%; width:26px; height:25px; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; gap:0; color:var(--g); font:18px/1 Arial,sans-serif; }
+.p2p-arrows span { position:absolute; display:block; transform-origin:center; }
+.p2p-arrows span:first-child { transform:translateX(-5px); animation:arrowCW 1.6s linear infinite; }
+.p2p-arrows span:last-child { transform:translateX(5px); animation:arrowCCW 1.6s linear infinite; }
+@keyframes arrowCW { from{transform:translateX(-5px) rotate(0deg)} to{transform:translateX(-5px) rotate(360deg)} }
+@keyframes arrowCCW { from{transform:translateX(5px) rotate(0deg)} to{transform:translateX(5px) rotate(-360deg)} }
+@keyframes personLeft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) rotate(-5deg)} }
+@keyframes personRight { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) rotate(5deg)} }
