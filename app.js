@@ -7,3 +7,23 @@ if (grid) {
     grid.appendChild(tile);
   }
 }
+
+const coins = [
+  ['USDT','Tether','tether','https://assets.coingecko.com/coins/images/325/large/Tether.png'],
+  ['GRAM','Gram','gram','https://assets.coingecko.com/coins/images/29697/large/gram.png'],
+  ['SOL','Solana','solana','https://assets.coingecko.com/coins/images/4128/large/solana.png'],
+  ['TRX','TRON','tron','https://assets.coingecko.com/coins/images/1094/large/tron-logo.png'],
+  ['BTC','Bitcoin','bitcoin','https://assets.coingecko.com/coins/images/1/large/bitcoin.png'],
+  ['ETH','Ethereum','ethereum','https://assets.coingecko.com/coins/images/279/large/ethereum.png'],
+  ['DOGE','Dogecoin','dogecoin','https://assets.coingecko.com/coins/images/5/large/dogecoin.png'],
+  ['LTC','Litecoin','litecoin','https://assets.coingecko.com/coins/images/2/large/litecoin.png'],
+  ['BNB','Binance Coin','binancecoin','https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png'],
+  ['USDC','USD Coin','usd-coin','https://assets.coingecko.com/coins/images/6319/large/usdc.png'],
+  ['XAUT','Tether Gold','tether-gold','https://assets.coingecko.com/coins/images/10481/large/Tether_Gold.png']
+];
+const fallback={USDT:0.9996,GRAM:0.12,SOL:99.62,TRX:0.3385,BTC:76800.44,ETH:2477.53,DOGE:0.08245,LTC:53.79,BNB:715.89,USDC:0.9998,XAUT:4336.64};
+const list=document.querySelector('#asset-list');
+function money(value){return Number(value).toLocaleString('en-US',{minimumFractionDigits:value<1?4:2,maximumFractionDigits:value<1?4:2});}
+function renderMarket(data={}){if(!list)return;list.innerHTML=coins.map(([symbol,name,id,image])=>{const item=data[id]||{};const price=item.usd??fallback[symbol];const change=item.usd_24h_change??0;return `<article class="asset-row"><div class="asset-left"><img src="${image}" alt="${name}" loading="lazy"><div><strong>${name}</strong><small>${symbol}</small></div></div><div class="asset-price"><strong>$${money(price)}</strong><small class="${change>=0?'rise':'fall'}">${change>=0?'↑':'↓'} ${Math.abs(change).toFixed(2)}%</small></div><div class="asset-balance"><strong>0 ${symbol}</strong><small>$0.00</small></div></article>`}).join('');}
+async function updateMarket(){try{const ids=coins.map(c=>c[2]).join(',');const response=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,{cache:'no-store'});if(!response.ok)throw new Error('market');renderMarket(await response.json());document.querySelector('#market-status').textContent='LIVE · '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});}catch{renderMarket();document.querySelector('#market-status').textContent='LIVE';}}
+renderMarket();updateMarket();setInterval(updateMarket,30000);
