@@ -274,3 +274,7 @@ body { font-family: Arial, Helvetica, sans-serif !important; font-size: 14px !im
 .balance { font-size: 42px !important; }
 .balance .punctuation, .balance .cents { font-size: 27px !important; }
 .actions b { font-size: 12px !important; }
+.wallet > span { font-size: 16px !important; font-weight: 700 !important; }
+.balance { font-size: 52px !important; line-height: 1 !important; }
+.balance .punctuation, .balance .cents { font-size: 34px !important; }
+.wallet p { font-size: 14px !important; }
