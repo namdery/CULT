@@ -300,7 +300,7 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 @keyframes iconHome { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) scale(1.08)} }
 @keyframes iconWallet { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) scale(1.08)} }
 @keyframes iconProfile { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
-@keyframes iconP2P { 0%,35%{transform:rotate(0deg) scale(1)} 50%,65%{transform:rotate(180deg) scale(1.04)} 80%,100%{transform:rotate(360deg) scale(1)} }
+@keyframes iconP2P { 0%,32%{transform:rotate(0deg) scale(1)} 48%,68%{transform:rotate(180deg) scale(1.04)} 84%,100%{transform:rotate(360deg) scale(1)} }
 
 /* P2P: separated people with two independent rounded arrows. */
 .p2p-cycle { display:none !important; }
