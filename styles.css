@@ -374,15 +374,15 @@ nav.bottom-nav .nav-item.is-animating .asset-profile { animation:iconProfile 1.2
 /* Action arrows react immediately to hover, keyboard focus and touch. */
 .actions button { cursor:pointer; }
 .actions button .swap-arrows span { will-change:transform; }
-.actions button .flipped-action-arrow { display:block; transform:rotate(180deg); }
+.action-item:nth-child(2) button i { transform:translateY(-1px) rotate(180deg); transform-origin:center; }
 
 @keyframes actionArrowUp {
   0%,100% { transform:translateY(-1px); }
   42% { transform:translateY(-7px); }
 }
 @keyframes actionArrowDown {
-  0%,100% { transform:translateY(-1px); }
-  42% { transform:translateY(5px); }
+  0%,100% { transform:translateY(-1px) rotate(180deg); }
+  42% { transform:translateY(5px) rotate(180deg); }
 }
 @keyframes swapArrowUp {
   0%,100% { transform:translateY(0); }
