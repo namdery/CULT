@@ -332,3 +332,10 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 @keyframes arrowCCW { from{transform:translateX(5px) rotate(0deg)} to{transform:translateX(5px) rotate(-360deg)} }
 @keyframes personLeft { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) rotate(-5deg)} }
 @keyframes personRight { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px) rotate(5deg)} }
+
+/* Final visibility/alignment overrides */
+.hero > .hero-character { right:7% !important; bottom:11% !important; width:27% !important; max-width:155px !important; }
+.tile-grid { inset:-2px !important; grid-template-columns:repeat(15,1fr) !important; grid-template-rows:repeat(6,1fr) !important; mix-blend-mode:normal !important; }
+.tile-grid i { margin:-1px !important; border:1px solid rgba(255,255,255,.22) !important; background:rgba(0,0,0,.08) !important; }
+.tile-grid i:nth-child(3n){background:rgba(0,0,0,.14) !important}.tile-grid i:nth-child(4n){background:rgba(255,255,255,.07) !important}.tile-grid i:nth-child(7n){background:rgba(0,0,0,.19) !important}
+@keyframes tileGlow {0%,100%{opacity:.22}50%{opacity:.52}}
