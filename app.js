@@ -30,10 +30,31 @@ async function updateMarket(){try{const ids=coins.map(c=>c[2]).join(',');const r
 renderMarket();updateMarket();setInterval(updateMarket,30000);
 
 document.querySelectorAll('.bottom-nav .nav-item').forEach((item) => {
-  item.addEventListener('click', () => {
+  let animationTimer;
+  const playNavAnimation = () => {
+    window.clearTimeout(animationTimer);
     item.classList.remove('is-animating');
     void item.offsetWidth;
     item.classList.add('is-animating');
-    window.setTimeout(() => item.classList.remove('is-animating'), 1900);
+    animationTimer = window.setTimeout(() => item.classList.remove('is-animating'), 1900);
+  };
+  item.addEventListener('pointerdown', playNavAnimation);
+});
+
+document.querySelectorAll('.actions button').forEach((button) => {
+  let animationTimer;
+  const playActionAnimation = () => {
+    window.clearTimeout(animationTimer);
+    button.classList.remove('is-animating');
+    void button.offsetWidth;
+    button.classList.add('is-animating');
+    animationTimer = window.setTimeout(() => button.classList.remove('is-animating'), 430);
+  };
+
+  button.addEventListener('pointerdown', playActionAnimation);
+
+  button.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'touch') playActionAnimation();
   });
+  button.addEventListener('focus', playActionAnimation);
 });
