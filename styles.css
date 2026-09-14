@@ -339,3 +339,21 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 .tile-grid i { margin:-1px !important; border:1px solid rgba(255,255,255,.085) !important; background:rgba(0,0,0,.031) !important; }
 .tile-grid i:nth-child(3n){background:rgba(0,0,0,.054) !important}.tile-grid i:nth-child(4n){background:rgba(255,255,255,.027) !important}.tile-grid i:nth-child(7n){background:rgba(0,0,0,.073) !important}
 @keyframes tileGlow {0%,100%{opacity:.085}50%{opacity:.20}}
+
+/* Navigation animations run on hover or tap, not continuously. */
+nav.bottom-nav .asset-home,
+nav.bottom-nav .asset-wallet,
+nav.bottom-nav .asset-p2p,
+nav.bottom-nav .asset-profile { animation:none !important; }
+nav.bottom-nav .nav-item:hover .asset-home,
+nav.bottom-nav .nav-item:focus-visible .asset-home,
+nav.bottom-nav .nav-item.is-animating .asset-home { animation:iconHome 1.2s ease-in-out !important; }
+nav.bottom-nav .nav-item:hover .asset-wallet,
+nav.bottom-nav .nav-item:focus-visible .asset-wallet,
+nav.bottom-nav .nav-item.is-animating .asset-wallet { animation:iconWallet 1.2s ease-in-out !important; }
+nav.bottom-nav .nav-item:hover .asset-p2p,
+nav.bottom-nav .nav-item:focus-visible .asset-p2p,
+nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2P 1.8s cubic-bezier(.45,.05,.55,.95) !important; }
+nav.bottom-nav .nav-item:hover .asset-profile,
+nav.bottom-nav .nav-item:focus-visible .asset-profile,
+nav.bottom-nav .nav-item.is-animating .asset-profile { animation:iconProfile 1.2s ease-in-out !important; }

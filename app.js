@@ -28,3 +28,12 @@ function money(value){return Number(value).toLocaleString('en-US',{minimumFracti
 function renderMarket(data={}){if(!list)return;list.innerHTML=coins.map(([symbol,name,id,image])=>{const item=data[id]||{};const price=item.usd??fallback[symbol];const change=item.usd_24h_change??fallbackChange[symbol];return `<article class="asset-row"><div class="asset-left"><img src="${image}" alt="${name}" loading="lazy" onerror="this.onerror=null;this.src='assets/p2p.svg'"><div><strong>${name}</strong><small>${symbol}</small></div></div><div class="asset-price"><strong>$${money(price)}</strong><small class="${change>=0?'rise':'fall'}">${change>=0?'↑':'↓'} ${Math.abs(change).toFixed(2)}%</small></div><div class="asset-balance"><strong>0 ${symbol}</strong><small>$0.00</small></div></article>`}).join('');}
 async function updateMarket(){try{const ids=coins.map(c=>c[2]).join(',');const response=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,{cache:'no-store'});if(!response.ok)throw new Error('market');renderMarket(await response.json());}catch{renderMarket();}}
 renderMarket();updateMarket();setInterval(updateMarket,30000);
+
+document.querySelectorAll('.bottom-nav .nav-item').forEach((item) => {
+  item.addEventListener('click', () => {
+    item.classList.remove('is-animating');
+    void item.offsetWidth;
+    item.classList.add('is-animating');
+    window.setTimeout(() => item.classList.remove('is-animating'), 1900);
+  });
+});
