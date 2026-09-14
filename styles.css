@@ -374,6 +374,7 @@ nav.bottom-nav .nav-item.is-animating .asset-profile { animation:iconProfile 1.2
 /* Action arrows react immediately to hover, keyboard focus and touch. */
 .actions button { cursor:pointer; }
 .actions button .swap-arrows span { will-change:transform; }
+.actions button i svg { display:block; flex:none; overflow:visible; }
 
 @keyframes actionArrowUp {
   0%,100% { transform:translateY(-1px); }
