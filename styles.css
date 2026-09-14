@@ -216,7 +216,7 @@ header, nav, .ref { display: none !important; }
 main { padding-top: 22px; }
 .hero { width: calc(100% - 28px); margin: 18px auto 0; height: 220px; border-radius: 28px; overflow: hidden; position: relative; }
 .hero img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-.hero > .hero-character { position:absolute; z-index:5; right:5%; bottom:-3%; width:34%; max-width:190px; height:auto; aspect-ratio:1; object-fit:contain; filter:none !important; pointer-events:none; }
+.hero > .hero-character { position:absolute; z-index:5; right:6%; bottom:2%; width:29%; max-width:165px; height:auto; aspect-ratio:1; object-fit:contain; filter:none !important; pointer-events:none; }
 .actions button { width:58px !important; height:58px !important; background:transparent !important; border:0 !important; }
 .actions b { display:none !important; }
 .actions i { font-size:30px !important; color:var(--g) !important; }
@@ -243,10 +243,10 @@ main { padding-top: 22px; }
   50% { opacity: .30; filter: brightness(1.06); }
 }
 .hero:before { display:none !important; }
-.tile-grid { position:absolute; inset:-2px; z-index:4; display:grid; grid-template-columns:repeat(45,1fr); grid-template-rows:repeat(18,1fr); pointer-events:none; overflow:hidden; border-radius:inherit; mix-blend-mode:difference; gap:0; }
-.tile-grid i { display:block; margin:-1px; border:1px solid rgba(255,255,255,.055); background:rgba(255,255,255,.0048); animation:tileGlow var(--duration) linear var(--delay) infinite alternate; }
-.tile-grid i:nth-child(3n){background:rgba(255,255,255,.0132)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.0084)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.018)}
-@keyframes tileGlow { 0%,100%{opacity:.023} 50%{opacity:.145} }
+.tile-grid { position:absolute; inset:-2px; z-index:4; display:grid; grid-template-columns:repeat(15,1fr); grid-template-rows:repeat(6,1fr); pointer-events:none; overflow:hidden; border-radius:inherit; mix-blend-mode:difference; gap:0; }
+.tile-grid i { display:block; margin:-1px; border:1px solid rgba(255,255,255,.02); background:rgba(255,255,255,.0024); animation:tileGlow var(--duration) linear var(--delay) infinite alternate; }
+.tile-grid i:nth-child(3n){background:rgba(255,255,255,.006)} .tile-grid i:nth-child(4n){background:rgba(255,255,255,.004)} .tile-grid i:nth-child(7n){background:rgba(255,255,255,.008)}
+@keyframes tileGlow { 0%,100%{opacity:.008} 50%{opacity:.052} }
 @media (prefers-reduced-motion:reduce){.tile-grid i{animation:none;opacity:.11}}
 
 /* Action buttons: soft rounded icon buttons with clear labels. */
