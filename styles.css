@@ -340,6 +340,17 @@ nav.bottom-nav .nav-item span:last-child { line-height:1; }
 .tile-grid i:nth-child(3n){background:rgba(0,0,0,.054) !important}.tile-grid i:nth-child(4n){background:rgba(255,255,255,.027) !important}.tile-grid i:nth-child(7n){background:rgba(0,0,0,.073) !important}
 @keyframes tileGlow {0%,100%{opacity:.085}50%{opacity:.20}}
 
+/* CULT floats gently; squares are darker and slightly more opaque. */
+.hero::after { display:block !important; content:""; position:absolute; inset:0; z-index:3; background:rgba(0,0,0,.14); pointer-events:none; border-radius:inherit; }
+.hero > .hero-character { animation:cultFloat 4.6s ease-in-out infinite; }
+@keyframes cultFloat {
+  0%,100% { transform:translate3d(0,0,0) rotate(0deg); }
+  50% { transform:translate3d(0,-8px,0) rotate(1.5deg); }
+}
+.tile-grid i { border-color:rgba(255,255,255,.102) !important; background:rgba(0,0,0,.037) !important; }
+.tile-grid i:nth-child(3n){background:rgba(0,0,0,.065) !important}.tile-grid i:nth-child(4n){background:rgba(255,255,255,.032) !important}.tile-grid i:nth-child(7n){background:rgba(0,0,0,.088) !important}
+@keyframes tileGlow {0%,100%{opacity:.102}50%{opacity:.24}}
+
 /* Navigation animations run on hover or tap, not continuously. */
 nav.bottom-nav .asset-home,
 nav.bottom-nav .asset-wallet,
