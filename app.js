@@ -11,36 +11,26 @@ document.querySelectorAll('.tile-grid').forEach((grid) => {
   }
 });
 
-/* Desktop users can drag the horizontal news rail just like a touch carousel. */
+/* The feature rail moves continuously and loops seamlessly; drag remains available. */
 document.querySelectorAll('.news-rail').forEach((rail) => {
+  const originals = Array.from(rail.children);
+  originals.forEach((card) => rail.appendChild(card.cloneNode(true)));
   let dragging = false;
   let startX = 0;
   let startScroll = 0;
-  let autoTimer;
-  let autoPaused = false;
-  const advanceRail = () => {
-    if (autoPaused || dragging) return;
-    const maxScroll = rail.scrollWidth - rail.clientWidth;
-    if (maxScroll <= 2) return;
-    const next = rail.scrollLeft + Math.max(rail.clientWidth * 0.88, 180);
-    if (next >= maxScroll - 4) {
-      rail.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      rail.scrollTo({ left: next, behavior: 'smooth' });
+  let lastFrame = performance.now();
+  const speed = 34;
+  const loop = (now) => {
+    const elapsed = Math.min(now - lastFrame, 50);
+    lastFrame = now;
+    if (!dragging) {
+      rail.scrollLeft += speed * elapsed / 1000;
+      const cycleWidth = rail.scrollWidth / 2;
+      if (cycleWidth > 0 && rail.scrollLeft >= cycleWidth) rail.scrollLeft -= cycleWidth;
     }
+    window.requestAnimationFrame(loop);
   };
-  const startAuto = () => {
-    window.clearInterval(autoTimer);
-    autoTimer = window.setInterval(advanceRail, 3600);
-  };
-  const pauseAuto = () => { autoPaused = true; };
-  const resumeAuto = () => { autoPaused = false; };
-  rail.addEventListener('mouseenter', pauseAuto);
-  rail.addEventListener('mouseleave', resumeAuto);
-  rail.addEventListener('touchstart', pauseAuto, { passive:true });
-  rail.addEventListener('touchend', resumeAuto, { passive:true });
   rail.addEventListener('pointerdown', (event) => {
-    pauseAuto();
     dragging = true;
     startX = event.clientX;
     startScroll = rail.scrollLeft;
@@ -48,22 +38,17 @@ document.querySelectorAll('.news-rail').forEach((rail) => {
     rail.setPointerCapture?.(event.pointerId);
   });
   rail.addEventListener('pointermove', (event) => {
-    if (!dragging) return;
-    rail.scrollLeft = startScroll - (event.clientX - startX);
+    if (dragging) rail.scrollLeft = startScroll - (event.clientX - startX);
   });
   const stopDragging = (event) => {
     if (!dragging) return;
     dragging = false;
     rail.classList.remove('is-dragging');
     if (event?.pointerId !== undefined) rail.releasePointerCapture?.(event.pointerId);
-    resumeAuto();
   };
   rail.addEventListener('pointerup', stopDragging);
   rail.addEventListener('pointercancel', stopDragging);
-  rail.addEventListener('pointerleave', (event) => {
-    if (event.pointerType === 'mouse') stopDragging(event);
-  });
-  startAuto();
+  window.requestAnimationFrame(loop);
 });
 
 const coins = [

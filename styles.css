@@ -475,7 +475,7 @@ nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15
   object-fit:cover;
   object-position:center;
   filter:none;
-  transform:scale(1.015);
+  transform:none;
 }
 .news-card::after {
   content:"";
@@ -522,7 +522,7 @@ nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15
   margin:0 -14px 14px 0;
   padding:0 28px 8px 0;
   overflow-x:scroll;
-  scroll-snap-type:x mandatory;
+  scroll-snap-type:none;
   overscroll-behavior-x:contain;
   scrollbar-width:none;
   touch-action:pan-x;
@@ -534,8 +534,11 @@ nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15
 .news-card--wide {
   flex:0 0 min(88%,570px);
   height:245px;
-  scroll-snap-align:start;
 }
+.news-pair--last { grid-template-columns:1fr 1.22fr; }
+.news-pair--last .news-card--last { grid-column:2; height:235px; }
+.news-full-row { margin:10px 0 190px; }
+.news-card--strip { width:100%; height:150px; }
 .news-tile-grid {
   z-index:1 !important;
   grid-template-columns:repeat(15,1fr) !important;
@@ -552,14 +555,16 @@ nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15
 }
 .news-copy { display:none !important; }
 .tile-grid i { transform:scale(var(--tile-scale,1)); transform-origin:center; }
-.news-card:hover > img { transform:scale(1.045); transition:transform .55s ease; }
-.news-card:hover .news-tile-grid { filter:brightness(1.18); transition:filter .3s ease; }
+.news-card:hover > img { transform:none; }
 
 @media (max-width:520px) {
   .news-section { margin-top:20px; }
   .news-heading h2 { font-size:18px; }
   .news-card--medium { height:185px; }
   .news-card--large,.news-card--small { height:260px; }
+  .news-pair--last { grid-template-columns:1fr 1.14fr; }
+  .news-pair--last .news-card--last { height:215px; }
+  .news-card--strip { height:125px; }
   .news-copy { left:11px; right:9px; bottom:11px; }
   .news-copy h3 { font-size:13px; }
   .news-copy p { font-size:10px; }
@@ -568,5 +573,5 @@ nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15
 
 @media (prefers-reduced-motion:reduce) {
   .news-rail { scroll-behavior:auto; }
-  .news-card:hover > img { transform:scale(1.015); }
+  .news-card:hover > img { transform:none; }
 }
