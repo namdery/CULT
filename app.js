@@ -1,11 +1,42 @@
 document.querySelectorAll('.tile-grid').forEach((grid) => {
-  const tileCount = grid.classList.contains('news-tile-grid') ? 48 : 90;
+  const isNewsGrid = grid.classList.contains('news-tile-grid');
+  const isWideNewsGrid = isNewsGrid && grid.parentElement?.classList.contains('news-card--wide');
+  const tileCount = isWideNewsGrid ? 160 : (isNewsGrid ? 112 : 90);
   for (let index = 0; index < tileCount; index += 1) {
     const tile = document.createElement('i');
     tile.style.setProperty('--delay', `${-(Math.random() * 0.8).toFixed(3)}s`);
     tile.style.setProperty('--duration', `${(0.38 + Math.random() * 0.34).toFixed(3)}s`);
     grid.appendChild(tile);
   }
+});
+
+/* Desktop users can drag the horizontal news rail just like a touch carousel. */
+document.querySelectorAll('.news-rail').forEach((rail) => {
+  let dragging = false;
+  let startX = 0;
+  let startScroll = 0;
+  rail.addEventListener('pointerdown', (event) => {
+    dragging = true;
+    startX = event.clientX;
+    startScroll = rail.scrollLeft;
+    rail.classList.add('is-dragging');
+    rail.setPointerCapture?.(event.pointerId);
+  });
+  rail.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    rail.scrollLeft = startScroll - (event.clientX - startX);
+  });
+  const stopDragging = (event) => {
+    if (!dragging) return;
+    dragging = false;
+    rail.classList.remove('is-dragging');
+    if (event?.pointerId !== undefined) rail.releasePointerCapture?.(event.pointerId);
+  };
+  rail.addEventListener('pointerup', stopDragging);
+  rail.addEventListener('pointercancel', stopDragging);
+  rail.addEventListener('pointerleave', (event) => {
+    if (event.pointerType === 'mouse') stopDragging(event);
+  });
 });
 
 const coins = [
