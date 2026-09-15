@@ -6,6 +6,7 @@ document.querySelectorAll('.tile-grid').forEach((grid) => {
     const tile = document.createElement('i');
     tile.style.setProperty('--delay', `${-(Math.random() * 0.8).toFixed(3)}s`);
     tile.style.setProperty('--duration', `${(0.38 + Math.random() * 0.34).toFixed(3)}s`);
+    tile.style.setProperty('--tile-scale', `${(0.62 + Math.random() * 0.78).toFixed(2)}`);
     grid.appendChild(tile);
   }
 });
@@ -15,7 +16,31 @@ document.querySelectorAll('.news-rail').forEach((rail) => {
   let dragging = false;
   let startX = 0;
   let startScroll = 0;
+  let autoTimer;
+  let autoPaused = false;
+  const advanceRail = () => {
+    if (autoPaused || dragging) return;
+    const maxScroll = rail.scrollWidth - rail.clientWidth;
+    if (maxScroll <= 2) return;
+    const next = rail.scrollLeft + Math.max(rail.clientWidth * 0.88, 180);
+    if (next >= maxScroll - 4) {
+      rail.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      rail.scrollTo({ left: next, behavior: 'smooth' });
+    }
+  };
+  const startAuto = () => {
+    window.clearInterval(autoTimer);
+    autoTimer = window.setInterval(advanceRail, 3600);
+  };
+  const pauseAuto = () => { autoPaused = true; };
+  const resumeAuto = () => { autoPaused = false; };
+  rail.addEventListener('mouseenter', pauseAuto);
+  rail.addEventListener('mouseleave', resumeAuto);
+  rail.addEventListener('touchstart', pauseAuto, { passive:true });
+  rail.addEventListener('touchend', resumeAuto, { passive:true });
   rail.addEventListener('pointerdown', (event) => {
+    pauseAuto();
     dragging = true;
     startX = event.clientX;
     startScroll = rail.scrollLeft;
@@ -31,12 +56,14 @@ document.querySelectorAll('.news-rail').forEach((rail) => {
     dragging = false;
     rail.classList.remove('is-dragging');
     if (event?.pointerId !== undefined) rail.releasePointerCapture?.(event.pointerId);
+    resumeAuto();
   };
   rail.addEventListener('pointerup', stopDragging);
   rail.addEventListener('pointercancel', stopDragging);
   rail.addEventListener('pointerleave', (event) => {
     if (event.pointerType === 'mouse') stopDragging(event);
   });
+  startAuto();
 });
 
 const coins = [
