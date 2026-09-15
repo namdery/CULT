@@ -418,3 +418,10 @@ nav.bottom-nav .nav-item.is-animating .asset-profile { animation:iconProfile 1.2
 nav.bottom-nav .nav-item:hover .asset-p2p,
 nav.bottom-nav .nav-item:focus-visible .asset-p2p,
 nav.bottom-nav .nav-item.is-animating .asset-p2p { animation:iconP2PInstant 1.15s cubic-bezier(.42,0,.32,1) !important; }
+
+/* Page sections switch through bottom navigation. */
+.screen { display:none; }
+.screen.is-active { display:block; }
+.screen[hidden] { display:none !important; }
+.screen-home { padding-top:1px; }
+.screen-wallet { padding-bottom:1px; }

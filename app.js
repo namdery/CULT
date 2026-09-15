@@ -94,7 +94,28 @@ document.querySelectorAll('.bottom-nav .nav-item').forEach((item) => {
     animationTimer = window.setTimeout(() => item.classList.remove('is-animating'), 1900);
   };
   item.addEventListener('pointerdown', playNavAnimation);
+  item.addEventListener('click', (event) => {
+    event.preventDefault();
+    const target = item.dataset.screen;
+    const screen = document.querySelector(`.screen[data-screen="${target}"]`);
+    if (!screen) return;
+    document.querySelectorAll('.screen').forEach((view) => {
+      const active = view === screen;
+      view.classList.toggle('is-active', active);
+      view.hidden = !active;
+    });
+    document.querySelectorAll('.bottom-nav .nav-item').forEach((navItem) => {
+      navItem.classList.toggle('active', navItem === item);
+    });
+    history.replaceState(null, '', `#${target}`);
+  });
 });
+
+const initialScreen = location.hash.slice(1);
+if (initialScreen) {
+  const initialNav = document.querySelector(`.bottom-nav .nav-item[data-screen="${initialScreen}"]`);
+  if (initialNav) initialNav.click();
+}
 
 document.querySelectorAll('.actions button').forEach((button) => {
   let animationTimer;
