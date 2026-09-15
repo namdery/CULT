@@ -1,12 +1,12 @@
-const grid = document.querySelector('.tile-grid');
-if (grid) {
-  for (let index = 0; index < 90; index += 1) {
+document.querySelectorAll('.tile-grid').forEach((grid) => {
+  const tileCount = grid.classList.contains('news-tile-grid') ? 48 : 90;
+  for (let index = 0; index < tileCount; index += 1) {
     const tile = document.createElement('i');
-    tile.style.setProperty('--delay', `${-(Math.random() * 0.5).toFixed(3)}s`);
-    tile.style.setProperty('--duration', `${(0.38 + Math.random() * 0.24).toFixed(3)}s`);
+    tile.style.setProperty('--delay', `${-(Math.random() * 0.8).toFixed(3)}s`);
+    tile.style.setProperty('--duration', `${(0.38 + Math.random() * 0.34).toFixed(3)}s`);
     grid.appendChild(tile);
   }
-}
+});
 
 const coins = [
   ['USDT','Tether','tether','assets/coins/usdt.png'],
